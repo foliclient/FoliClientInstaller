@@ -1,0 +1,16 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "minecraft:item/nether_sprouts"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0, 1, 1],
+			"scale": [0.55, 0.55, 0.55]
+		},
+		"head": {
+			"rotation": [0, 180, 0],
+			"translation": [0, 8, 7]
+        }
+	}
+}

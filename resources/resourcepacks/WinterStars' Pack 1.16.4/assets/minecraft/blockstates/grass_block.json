@@ -1,0 +1,54 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "block/grass_block_top/block/0"
+      },
+      {
+        "model": "block/grass_block_top/block/1"
+      },
+      {
+        "model": "block/grass_block_top/block/2"
+      },
+      {
+        "model": "block/grass_block_top/block/3"
+      },
+      {
+        "model": "block/grass_block_top/block/4"
+      },
+      {
+        "model": "block/grass_block_top/block/5"
+      },
+      {
+        "model": "block/grass_block_top/block/6"
+      },
+      {
+        "model": "block/grass_block_top/block/7"
+      },
+      {
+        "model": "block/grass_block_top/block/8"
+      },
+      {
+        "model": "block/grass_block_top/block/9"
+      },
+      {
+        "model": "block/grass_block_top/block/10"
+      },
+      {
+        "model": "block/grass_block_top/block/11"
+      },
+      {
+        "model": "block/grass_block_top/block/12"
+      },
+      {
+        "model": "block/grass_block_top/block/13"
+      },
+      {
+        "model": "block/grass_block_top/block/14"
+      },
+      {
+        "model": "block/grass_block_top/block/15"
+      }
+    ]
+  }
+}

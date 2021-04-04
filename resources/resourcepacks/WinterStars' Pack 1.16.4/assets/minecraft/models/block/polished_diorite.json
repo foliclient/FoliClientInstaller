@@ -1,0 +1,7 @@
+{
+    "parent": "block/ctm",
+    "textures": {
+        "all": "block/polished_diorite_border",
+        "base": "block/polished_diorite"
+    }
+}

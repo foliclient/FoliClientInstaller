@@ -1,0 +1,20 @@
+{
+    "parent": "block/soul_lantern",
+	"display": {
+        "thirdperson_righthand": {
+            "rotation": [ 75, 45, 0 ],
+            "translation": [ 0, 2.5, 2],
+            "scale": [ 0.66, 0.66, 0.66 ]
+        },
+        "firstperson_righthand": {
+            "rotation": [ 0, 45, 0 ],
+            "translation": [ 0, 3, 0 ],
+            "scale": [ 0.60, 0.60, 0.60 ]
+        },
+        "firstperson_lefthand": {
+            "rotation": [ 0, 225, 0 ],
+            "translation": [ 0, 3, 0 ],
+            "scale": [ 0.60, 0.60, 0.60 ]
+        }
+	}
+}
