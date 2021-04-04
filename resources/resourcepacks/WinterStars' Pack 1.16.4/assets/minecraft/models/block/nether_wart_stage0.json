@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "alert": "minecraft:block/no_alert",
+    "crop": "minecraft:block/nether_wart_stage0"
+  }
+}
