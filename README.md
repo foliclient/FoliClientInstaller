@@ -14,3 +14,8 @@ Installs the Foli Client modpack
 - [Sodium](https://www.curseforge.com/minecraft/mc-mods/sodium)
 - [Lithium](https://www.curseforge.com/minecraft/mc-mods/lithium)
 - [Phosphor](https://www.curseforge.com/minecraft/mc-mods/phosphor)
+- [FancyMenu](https://www.curseforge.com/minecraft/mc-mods/fancymenu-fabric)
+- [Shulker Box Tooltip]()
+- [Dynamic FPS]()
+- [Inventory HUD+]()
+- [KronHUD]()
