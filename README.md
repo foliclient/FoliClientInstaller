@@ -3,7 +3,9 @@
 Installs the Foli Client modpack
 
 ## Notes
-- Voxelmap Menu key has been remapped from `m` to `` ` `` (the one above `Tab` on English keyboards), and Cave Mode and Radar have been disabled.
+- ReplayMod is included, but autorecording is disabled by default. If you're using it on TG, remember not to abuse it to see where you shouldn't, or gain any unfair advantage.
+- ReplayMod depends on FFmpeg to function correctly. The FFmpeg executable has been included, meaning Windows users don't need to do anything, however, if you're on a Mac or Linux machine you will need to install FFmpeg manually. For more info go to [Replaymod's website](https://www.replaymod.com/).
+- Voxelmap's Menu key has been remapped from `m` to `` ` `` (the one above `Tab` on English keyboards), and Cave Mode and Radar have been disabled.
 - To activate the Light Overlay, press `f7`
 
 ## Credits
@@ -23,3 +25,6 @@ Installs the Foli Client modpack
 - [MiniHUD](https://www.curseforge.com/minecraft/mc-mods/minihud)
 - [Light Overlay](https://www.curseforge.com/minecraft/mc-mods/light-overlay)
 - [Litematica](https://www.curseforge.com/minecraft/mc-mods/litematica)
+- [CraftPresence](https://www.curseforge.com/minecraft/mc-mods/craftpresence)
+- [ReplayMod](https://www.replaymod.com/)
+- [FFmpeg](https://ffmpeg.org/)
