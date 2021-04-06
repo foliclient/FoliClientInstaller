@@ -181,19 +181,28 @@ for encoders, decoders, demuxers, muxers, filters, etc.
 </p>
 </dd>
 <dt><samp>filter=<var>filter_name</var></samp></dt>
-<dd><p>Print detailed information about the filter name <var>filter_name</var>. Use the
+<dd><p>Print detailed information about the filter named <var>filter_name</var>. Use the
 <samp>-filters</samp> option to get a list of all filters.
 </p>
 </dd>
 <dt><samp>bsf=<var>bitstream_filter_name</var></samp></dt>
-<dd><p>Print detailed information about the bitstream filter name <var>bitstream_filter_name</var>.
+<dd><p>Print detailed information about the bitstream filter named <var>bitstream_filter_name</var>.
 Use the <samp>-bsfs</samp> option to get a list of all bitstream filters.
+</p>
+</dd>
+<dt><samp>protocol=<var>protocol_name</var></samp></dt>
+<dd><p>Print detailed information about the protocol named <var>protocol_name</var>.
+Use the <samp>-protocols</samp> option to get a list of all protocols.
 </p></dd>
 </dl>
 
 </dd>
 <dt><samp>-version</samp></dt>
 <dd><p>Show version.
+</p>
+</dd>
+<dt><samp>-buildconf</samp></dt>
+<dd><p>Show the build configuration, one option per line.
 </p>
 </dd>
 <dt><samp>-formats</samp></dt>
@@ -459,7 +468,14 @@ ffmpeg -cpuflags 0 ...
 </dl>
 </dd>
 </dl>
+
 </dd>
+<dt><samp>-max_alloc <var>bytes</var></samp></dt>
+<dd><p>Set the maximum size limit for allocating a block on the heap by ffmpeg&rsquo;s
+family of malloc functions. Exercise <strong>extreme caution</strong> when using
+this option. Don&rsquo;t use if you do not understand the full consequence of doing so.
+Default is INT_MAX.
+</p></dd>
 </dl>
 
 <a name="AVOptions"></a>

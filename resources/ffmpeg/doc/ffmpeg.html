@@ -606,19 +606,28 @@ for encoders, decoders, demuxers, muxers, filters, etc.
 </p>
 </dd>
 <dt><samp>filter=<var>filter_name</var></samp></dt>
-<dd><p>Print detailed information about the filter name <var>filter_name</var>. Use the
+<dd><p>Print detailed information about the filter named <var>filter_name</var>. Use the
 <samp>-filters</samp> option to get a list of all filters.
 </p>
 </dd>
 <dt><samp>bsf=<var>bitstream_filter_name</var></samp></dt>
-<dd><p>Print detailed information about the bitstream filter name <var>bitstream_filter_name</var>.
+<dd><p>Print detailed information about the bitstream filter named <var>bitstream_filter_name</var>.
 Use the <samp>-bsfs</samp> option to get a list of all bitstream filters.
+</p>
+</dd>
+<dt><samp>protocol=<var>protocol_name</var></samp></dt>
+<dd><p>Print detailed information about the protocol named <var>protocol_name</var>.
+Use the <samp>-protocols</samp> option to get a list of all protocols.
 </p></dd>
 </dl>
 
 </dd>
 <dt><samp>-version</samp></dt>
 <dd><p>Show version.
+</p>
+</dd>
+<dt><samp>-buildconf</samp></dt>
+<dd><p>Show the build configuration, one option per line.
 </p>
 </dd>
 <dt><samp>-formats</samp></dt>
@@ -884,7 +893,14 @@ ffmpeg -cpuflags 0 ...
 </dl>
 </dd>
 </dl>
+
 </dd>
+<dt><samp>-max_alloc <var>bytes</var></samp></dt>
+<dd><p>Set the maximum size limit for allocating a block on the heap by ffmpeg&rsquo;s
+family of malloc functions. Exercise <strong>extreme caution</strong> when using
+this option. Don&rsquo;t use if you do not understand the full consequence of doing so.
+Default is INT_MAX.
+</p></dd>
 </dl>
 
 <a name="AVOptions"></a>
@@ -1138,6 +1154,102 @@ they do not conflict with the standard, as in:
 <pre class="example">ffmpeg -i myfile.avi -target vcd -bf 2 /tmp/vcd.mpg
 </pre></div>
 
+<p>The parameters set for each target are as follows.
+</p>
+<p><strong>VCD</strong>
+</p><div class="example">
+<pre class="example"><var>pal</var>:
+-f vcd -muxrate 1411200 -muxpreload 0.44 -packetsize 2324
+-s 352x288 -r 25
+-codec:v mpeg1video -g 15 -b:v 1150k -maxrate:v 1150v -minrate:v 1150k -bufsize:v 327680
+-ar 44100 -ac 2
+-codec:a mp2 -b:a 224k
+
+<var>ntsc</var>:
+-f vcd -muxrate 1411200 -muxpreload 0.44 -packetsize 2324
+-s 352x240 -r 30000/1001
+-codec:v mpeg1video -g 18 -b:v 1150k -maxrate:v 1150v -minrate:v 1150k -bufsize:v 327680
+-ar 44100 -ac 2
+-codec:a mp2 -b:a 224k
+
+<var>film</var>:
+-f vcd -muxrate 1411200 -muxpreload 0.44 -packetsize 2324
+-s 352x240 -r 24000/1001
+-codec:v mpeg1video -g 18 -b:v 1150k -maxrate:v 1150v -minrate:v 1150k -bufsize:v 327680
+-ar 44100 -ac 2
+-codec:a mp2 -b:a 224k
+</pre></div>
+
+<p><strong>SVCD</strong>
+</p><div class="example">
+<pre class="example"><var>pal</var>:
+-f svcd -packetsize 2324
+-s 480x576 -pix_fmt yuv420p -r 25
+-codec:v mpeg2video -g 15 -b:v 2040k -maxrate:v 2516k -minrate:v 0 -bufsize:v 1835008 -scan_offset 1
+-ar 44100
+-codec:a mp2 -b:a 224k
+
+<var>ntsc</var>:
+-f svcd -packetsize 2324
+-s 480x480 -pix_fmt yuv420p -r 30000/1001
+-codec:v mpeg2video -g 18 -b:v 2040k -maxrate:v 2516k -minrate:v 0 -bufsize:v 1835008 -scan_offset 1
+-ar 44100
+-codec:a mp2 -b:a 224k
+
+<var>film</var>:
+-f svcd -packetsize 2324
+-s 480x480 -pix_fmt yuv420p -r 24000/1001
+-codec:v mpeg2video -g 18 -b:v 2040k -maxrate:v 2516k -minrate:v 0 -bufsize:v 1835008 -scan_offset 1
+-ar 44100
+-codec:a mp2 -b:a 224k
+</pre></div>
+
+<p><strong>DVD</strong>
+</p><div class="example">
+<pre class="example"><var>pal</var>:
+-f dvd -muxrate 10080k -packetsize 2048
+-s 720x576 -pix_fmt yuv420p -r 25
+-codec:v mpeg2video -g 15 -b:v 6000k -maxrate:v 9000k -minrate:v 0 -bufsize:v 1835008
+-ar 48000
+-codec:a ac3 -b:a 448k
+
+<var>ntsc</var>:
+-f dvd -muxrate 10080k -packetsize 2048
+-s 720x480 -pix_fmt yuv420p -r 30000/1001
+-codec:v mpeg2video -g 18 -b:v 6000k -maxrate:v 9000k -minrate:v 0 -bufsize:v 1835008
+-ar 48000
+-codec:a ac3 -b:a 448k
+
+<var>film</var>:
+-f dvd -muxrate 10080k -packetsize 2048
+-s 720x480 -pix_fmt yuv420p -r 24000/1001
+-codec:v mpeg2video -g 18 -b:v 6000k -maxrate:v 9000k -minrate:v 0 -bufsize:v 1835008
+-ar 48000
+-codec:a ac3 -b:a 448k
+</pre></div>
+
+<p><strong>DV</strong>
+</p><div class="example">
+<pre class="example"><var>pal</var>:
+-f dv
+-s 720x576 -pix_fmt yuv420p -r 25
+-ar 48000 -ac 2
+
+<var>ntsc</var>:
+-f dv
+-s 720x480 -pix_fmt yuv411p -r 30000/1001
+-ar 48000 -ac 2
+
+<var>film</var>:
+-f dv
+-s 720x480 -pix_fmt yuv411p -r 24000/1001
+-ar 48000 -ac 2
+</pre></div>
+<p>The <code>dv50</code> target is identical to the <code>dv</code> target except that the pixel format set is <code>yuv422p</code> for all three standards.
+</p>
+<p>Any user-set value for a parameter above will override the target preset value. In that case, the output may
+not comply with the target standard.
+</p>
 </dd>
 <dt><samp>-dn (<em>input/output</em>)</samp></dt>
 <dd><p>As an input option, blocks all data streams of a file from being filtered or
@@ -1205,13 +1317,19 @@ The default is the number of available CPUs.
 disable it you need to specify <code>-nostats</code>.
 </p>
 </dd>
+<dt><samp>-stats_period <var>time</var> (<em>global</em>)</samp></dt>
+<dd><p>Set period at which encoding progress/statistics are updated. Default is 0.5 seconds.
+</p>
+</dd>
 <dt><samp>-progress <var>url</var> (<em>global</em>)</samp></dt>
 <dd><p>Send program-friendly progress information to <var>url</var>.
 </p>
-<p>Progress information is written approximately every second and at the end of
+<p>Progress information is written periodically and at the end of
 the encoding process. It is made of &quot;<var>key</var>=<var>value</var>&quot; lines. <var>key</var>
 consists of only alphanumeric characters. The last key of a sequence of
 progress information is always &quot;progress&quot;.
+</p>
+<p>The update period is set using <code>-stats_period</code>.
 </p>
 <span id="stdin-option"></span></dd>
 <dt><samp>-stdin</samp></dt>
@@ -1267,12 +1385,7 @@ will be used.
 <p>Technical note &ndash; attachments are implemented as codec extradata, so this
 option can actually be used to extract extradata from any stream, not just
 attachments.
-</p>
-</dd>
-<dt><samp>-noautorotate</samp></dt>
-<dd><p>Disable automatically rotating video based on file metadata.
-</p>
-</dd>
+</p></dd>
 </dl>
 
 <a name="Video-Options"></a>
@@ -1294,6 +1407,14 @@ If in doubt use <samp>-framerate</samp> instead of the input option <samp>-r</sa
 </p>
 <p>As an output option, duplicate or drop input frames to achieve constant output
 frame rate <var>fps</var>.
+</p>
+</dd>
+<dt><samp>-fpsmax[:<var>stream_specifier</var>] <var>fps</var> (<em>output,per-stream</em>)</samp></dt>
+<dd><p>Set maximum frame rate (Hz value, fraction or abbreviation).
+</p>
+<p>Clamps output frame rate when output framerate is auto-set and is higher than this value.
+Useful in batch processing or when input framerate is wrongly detected as very high.
+It cannot be set together with <code>-r</code>. It is ignored during streamcopy.
 </p>
 </dd>
 <dt><samp>-s[:<var>stream_specifier</var>] <var>size</var> (<em>input/output,per-stream</em>)</samp></dt>
@@ -1363,6 +1484,20 @@ stream
 filter the stream.
 </p>
 <p>This is an alias for <code>-filter:v</code>, see the <a href="#filter_005foption">-filter option</a>.
+</p>
+</dd>
+<dt><samp>-autorotate</samp></dt>
+<dd><p>Automatically rotate the video according to file metadata. Enabled by
+default, use <samp>-noautorotate</samp> to disable it.
+</p>
+</dd>
+<dt><samp>-autoscale</samp></dt>
+<dd><p>Automatically scale the video according to the resolution of first frame.
+Enabled by default, use <samp>-noautoscale</samp> to disable it. When autoscale is
+disabled, all output frames of filter graph might not be in the same resolution
+and may be inadequate for some encoder/muxer. Therefore, it is not recommended
+to disable it unless you really know what you are doing.
+Disable autoscale at your own risk.
 </p></dd>
 </dl>
 
@@ -1397,8 +1532,8 @@ factor if negative.
 <dd><p>Force interlacing support in encoder (MPEG-2 and MPEG-4 only).
 Use this option if your input file is interlaced and you want
 to keep the interlaced format for minimum losses.
-The alternative is to deinterlace the input stream with
-<samp>-deinterlace</samp>, but deinterlacing introduces losses.
+The alternative is to deinterlace the input stream by use of a filter
+such as <code>yadif</code> or <code>bwdif</code>, but deinterlacing introduces losses.
 </p></dd>
 <dt><samp>-psnr</samp></dt>
 <dd><p>Calculate PSNR of compressed frames.
@@ -1723,7 +1858,9 @@ were called immediately before.
 </p>
 </dd>
 <dt><samp>-hwaccels</samp></dt>
-<dd><p>List all hardware acceleration methods supported in this build of ffmpeg.
+<dd><p>List all hardware acceleration components enabled in this build of ffmpeg.
+Actual runtime availability depends on the hardware and its suitable driver
+being installed.
 </p>
 </dd>
 </dl>
@@ -2133,6 +2270,19 @@ is enabled.
 <p>This option has been deprecated. Use the <code>aresample</code> audio filter instead.
 </p>
 </dd>
+<dt><samp>-adrift_threshold <var>time</var></samp></dt>
+<dd><p>Set the minimum difference between timestamps and audio data (in seconds) to trigger
+adding/dropping samples to make it match the timestamps. This option effectively is
+a threshold to select between hard (add/drop) and soft (squeeze/stretch) compensation.
+<code>-async</code> must be set to a positive value.
+</p>
+</dd>
+<dt><samp>-apad <var>parameters</var> (<em>output,per-stream</em>)</samp></dt>
+<dd><p>Pad the output audio stream(s). This is the same as applying <code>-af apad</code>.
+Argument is a string of filter parameters composed the same as with the <code>apad</code> filter.
+<code>-shortest</code> must be set for this output for the option to take effect.
+</p>
+</dd>
 <dt><samp>-copyts</samp></dt>
 <dd><p>Do not process input timestamps, but keep their values without trying
 to sanitize them. In particular, do not remove the initial start time
@@ -2306,6 +2456,22 @@ graph will be added to the output file automatically, so we can simply write
 <pre class="example">ffmpeg -i video.mkv -i image.png -filter_complex 'overlay' out.mkv
 </pre></div>
 
+<p>As a special exception, you can use a bitmap subtitle stream as input: it
+will be converted into a video with the same size as the largest video in
+the file, or 720x576 if no video is present. Note that this is an
+experimental and temporary solution. It will be removed once libavfilter has
+proper support for subtitles.
+</p>
+<p>For example, to hardcode subtitles on top of a DVB-T recording stored in
+MPEG-TS format, delaying the subtitles by 1 second:
+</p><div class="example">
+<pre class="example">ffmpeg -i input.ts -filter_complex \
+  '[#0x2ef] setpts=PTS+1/TB [sub] ; [#0x2d0] [sub] overlay' \
+  -sn -map '#0x2dc' output.mkv
+</pre></div>
+<p>(0x2d0, 0x2dc and 0x2ef are the MPEG-TS PIDs of respectively the video,
+audio and subtitles streams; 0:0, 0:3 and 0:7 would have worked too)
+</p>
 <p>To generate 5 seconds of pure red video using lavfi <code>color</code> source:
 </p><div class="example">
 <pre class="example">ffmpeg -filter_complex 'color=c=red' -t 5 out.mkv
@@ -2347,8 +2513,9 @@ not start from timestamp 0, such as transport streams.
 <dt><samp>-thread_queue_size <var>size</var> (<em>input</em>)</samp></dt>
 <dd><p>This option sets the maximum number of queued packets when reading from the
 file or device. With low latency / high rate live streams, packets may be
-discarded if they are not read in a timely manner; raising this value can
-avoid it.
+discarded if they are not read in a timely manner; setting this value can
+force ffmpeg to use a separate input thread and read packets as soon as they
+arrive. By default ffmpeg only do this if multiple inputs are specified.
 </p>
 </dd>
 <dt><samp>-sdp_file <var>file</var> (<em>global</em>)</samp></dt>
@@ -2403,6 +2570,12 @@ and is not supported by all demuxers.
 </dl>
 
 </dd>
+<dt><samp>-max_error_rate (<em>global</em>)</samp></dt>
+<dd><p>Set fraction of decoding frame failures across all inputs which when crossed
+ffmpeg will return exit code 69. Crossing this threshold does not terminate
+processing. Range is a floating-point number between 0 to 1. Default is 2/3.
+</p>
+</dd>
 <dt><samp>-xerror (<em>global</em>)</samp></dt>
 <dd><p>Stop and exit on error
 </p>
@@ -2417,24 +2590,25 @@ this buffer, in packets, for the matching output stream.
 touch this option if you are sure that you need it.
 </p>
 </dd>
+<dt><samp>-muxing_queue_data_threshold <var>bytes</var> (<em>output,per-stream</em>)</samp></dt>
+<dd><p>This is a minimum threshold until which the muxing queue size is not taken into
+account. Defaults to 50 megabytes per stream, and is based on the overall size
+of packets passed to the muxer.
+</p>
+</dd>
+<dt><samp>-auto_conversion_filters (<em>global</em>)</samp></dt>
+<dd><p>Enable automatically inserting format conversion filters in all filter
+graphs, including those defined by <samp>-vf</samp>, <samp>-af</samp>,
+<samp>-filter_complex</samp> and <samp>-lavfi</samp>. If filter format negotiation
+requires a conversion, the initialization of the filters will fail.
+Conversions can still be performed by inserting the relevant conversion
+filter (scale, aresample) in the graph.
+On by default, to explicitly disable it you need to specify
+<code>-noauto_conversion_filters</code>.
+</p>
+</dd>
 </dl>
 
-<p>As a special exception, you can use a bitmap subtitle stream as input: it
-will be converted into a video with the same size as the largest video in
-the file, or 720x576 if no video is present. Note that this is an
-experimental and temporary solution. It will be removed once libavfilter has
-proper support for subtitles.
-</p>
-<p>For example, to hardcode subtitles on top of a DVB-T recording stored in
-MPEG-TS format, delaying the subtitles by 1 second:
-</p><div class="example">
-<pre class="example">ffmpeg -i input.ts -filter_complex \
-  '[#0x2ef] setpts=PTS+1/TB [sub] ; [#0x2d0] [sub] overlay' \
-  -sn -map '#0x2dc' output.mkv
-</pre></div>
-<p>(0x2d0, 0x2dc and 0x2ef are the MPEG-TS PIDs of respectively the video,
-audio and subtitles streams; 0:0, 0:3 and 0:7 would have worked too)
-</p>
 <a name="Preset-files"></a>
 <h3 class="section">5.12 Preset files<span class="pull-right"><a class="anchor hidden-xs" href="#Preset-files" aria-hidden="true">#</a> <a class="anchor hidden-xs"href="#toc-Preset-files" aria-hidden="true">TOC</a></span></h3>
 <p>A preset file contains a sequence of <var>option</var>=<var>value</var> pairs,
