@@ -11,11 +11,13 @@ Foli Client is a customized, preconfigured modpack intended to provide a player 
 | InventoryHUD+                         | Displays your inventory, armor status, and potion effects in HUDs |
 | VoxelMap                              | Gives you a minimap and a worldmap that updates as you explore.\*\*\* (Note: the hotkey to open the world map has been changed from `m` to `` ` ``) |
 | MiniHUD                               | Displays FPS, Ping, Memory Usage, and more in a highly configurable HUD |
-| Shulker Box Tooltip                   | Displays the full contents of a shulker box when you hold `shift` and hover over it in your inventory |
-| Light Overlay                         | Shows the light level of the blocks around you. Toggled using `f7`. |
+| Also MiniHUD                  | Displays the full contents of a shulker box when you hold `shift` and hover over it in your inventory |
+| Also MiniHUD                         | Shows the light level of the blocks around you. Toggled using `f7`. |
 | Litematica                            | Allows you to make schematics of builds, and display them as an overlay in game to help recreate a build. |
 | ReplayMod                             | Allows you to record gameplay, and view it as if in spectator mode later.*** |
 | DynamicFPS, Sodium, Lithium, Phosphor | Increase Minecraft performance significantly                 |
+| Ok Zoomer | Allows you to zoom, activated by holding `C` |
+| MyBrightness | FullBright, turn it on using `5` on the numpad (You can remap this in the ingame hotkey settings) |
 
 ## Installation Instructions:
 
@@ -49,15 +51,15 @@ Thanks to WinterStars, exgodstatus, and TheDoctor7562 for giving me insight on t
 - [Lithium](https://www.curseforge.com/minecraft/mc-mods/lithium)
 - [Phosphor](https://www.curseforge.com/minecraft/mc-mods/phosphor)
 - [FancyMenu](https://www.curseforge.com/minecraft/mc-mods/fancymenu-fabric)
-- [Shulker Box Tooltip](https://www.curseforge.com/minecraft/mc-mods/shulkerboxtooltip)
 - [Dynamic FPS](https://www.curseforge.com/minecraft/mc-mods/dynamic-fps)
 - [Inventory HUD+](https://www.curseforge.com/minecraft/mc-mods/inventory-hud-forge)
 - [MiniHUD](https://www.curseforge.com/minecraft/mc-mods/minihud)
-- [Light Overlay](https://www.curseforge.com/minecraft/mc-mods/light-overlay)
 - [Litematica](https://www.curseforge.com/minecraft/mc-mods/litematica)
 - [CraftPresence](https://www.curseforge.com/minecraft/mc-mods/craftpresence)
 - [ReplayMod](https://www.replaymod.com/)
 - [FFmpeg](https://ffmpeg.org/)
+- [MyBrightness](https://www.curseforge.com/minecraft/mc-mods/mybrightness)
+- [Ok Zoomer](https://www.curseforge.com/minecraft/mc-mods/ok-zoomer)
 
 ## Resource Packs Used
 
