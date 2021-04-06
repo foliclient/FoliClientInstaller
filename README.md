@@ -1,4 +1,4 @@
-# Foli Client
+![](https://raw.githubusercontent.com/ablazingeboy/FoliClientInstaller/main/resources/config/foliclientlogobg.png?token=AS4NPFVUY4OGEDUZH4RM273ANR72C)
 
 This is the installer for the Foli Client modpack.
 
@@ -38,6 +38,7 @@ Foli Client is a customized, preconfigured modpack intended to provide a player 
 ## Credits
 
 Thanks to AydenSWG for making custom textures for the included resource pack.
+
 Thanks to WinterStars, exgodstatus, and TheDoctor7562 for giving me insight on their mod configs, and providing suggestions for configuring mods.
 
 ## Mods Used
