@@ -6,7 +6,7 @@ This is the installer for the Foli Client modpack.
 
 ## What is Foli Client?
 
-Foli Client is a customized, preconfigured modpack intended to provide a player with useful tools for technical Minecrft. In addition, mods are configured by default to be legal on the TeenagersGaming Minecraft Server. Here is an explanation of some of the various mods included:
+Foli Client is a customized, preconfigured modpack intended to provide a player with useful tools for technical Minecraft. In addition, mods are configured by default to be legal on the TeenagersGaming Minecraft Server. Here is an explanation of some of the various mods included:
 
 | Mod                                   | What it does                                                 |
 | ------------------------------------- | ------------------------------------------------------------ |
