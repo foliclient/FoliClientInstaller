@@ -1,4 +1,4 @@
-# Foli Client
+![](https://raw.githubusercontent.com/ablazingeboy/FoliClientInstaller/main/resources/config/foliclientlogobg.png?token=AS4NPFVUY4OGEDUZH4RM273ANR72C)
 
 This is the installer for the Foli Client modpack.
 
@@ -19,13 +19,13 @@ Foli Client is a customized, preconfigured modpack intended to provide a player 
 | Ok Zoomer | Allows you to zoom, activated by holding `C` |
 | MyBrightness | FullBright, turn it on using `5` on the numpad (You can remap this in the ingame hotkey settings) |
 
-## Installation Instructions:
+## Installation Instructions
 
 1. Create a **fresh** profile/instance of Minecraft. If using the default launcher, it is recommended to create a different installation directory for the profile you will be using for Foli Client. **I strongly suggest using MultiMC**, as it makes it easy to manage multiple Minecraft profiles, and allows you to install Fabric with one click.
 2. Install [Fabric](https://fabricmc.net/). **Do not install Fabric API**, as the appropriate version is included in the modpack.
 3. Download the latest release from the [Releases](https://github.com/ablazingeboy/FoliClientInstaller/releases) page, and unzip it. **Do not move any of the files from the folder where they were unzipped.**
 4. Run the installer for your OS (`FoliClientInstaller.exe` for Windows, and `FoliClientInstaller.py`\* for other platforms). When prompted, paste in the **full filepath** of your Minecraft install directory (e.g. `C:\Users\ABlazingEBoy\Documents\MinecraftDirectory` on Windows or  `/Users/ABlazingEBoy/Documents/MinecraftDirectory` on Mac)
-5. After you start up Foli Client, **make sure to apply the two included resource packs.**
+5. After you start up Foli Client, **make sure to apply the two included resource packs. Foli Client Specific Textures should always be on top of your resourcepack list for the client to look correct**
 6. Enjoy Foli Client! 
 
 ## Notes
@@ -36,10 +36,12 @@ Foli Client is a customized, preconfigured modpack intended to provide a player 
 - \*\*ReplayMod depends on FFmpeg to function correctly. The FFmpeg executable has been included, meaning Windows users don't need to do anything, however, if you're on a Mac or Linux machine you will need to install FFmpeg manually. For more info go to [Replaymod's website](https://www.replaymod.com/).
 - \*\*\*Voxelmap's Menu key has been remapped from `m` to `` ` `` (the one above `Tab` on English keyboards), and Cave Mode and Radar have been disabled.
 - To activate the Light Overlay, press `f7`
+- If you have any issues with the installer, submit a GitHub issue or message me on Discord at ablazingeboy#7375
 
 ## Credits
 
 Thanks to AydenSWG for making custom textures for the included resource pack.
+
 Thanks to WinterStars, exgodstatus, and TheDoctor7562 for giving me insight on their mod configs, and providing suggestions for configuring mods.
 
 ## Mods Used
