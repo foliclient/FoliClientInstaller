@@ -17,8 +17,6 @@ Foli Client is a customized, preconfigured modpack intended to provide a player 
 | ReplayMod                             | Allows you to record gameplay, and view it as if in spectator mode later.*** |
 | DynamicFPS, Sodium, Lithium, Phosphor | Increase Minecraft performance significantly                 |
 
-
-
 ## Installation Instructions:
 
 1. Create a **fresh** profile/instance of Minecraft. If using the default launcher, it is recommended to create a different installation directory for the profile you will be using for Foli Client. **I strongly suggest using MultiMC**, as it makes it easy to manage multiple Minecraft profiles, and allows you to install Fabric with one click.
