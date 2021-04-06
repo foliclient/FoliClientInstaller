@@ -58,7 +58,7 @@ if not os.path.isdir(sourcepath):
     try:
         # get resources.zip
         a = wget.download(
-            "https://github.com/yaxley-peaks/FoliClientInstaller/raw/main/resources.zip")
+            "https://github.com/yaxley-peaks/foliclient-resources/raw/main/resources.zip")
         with ZipFile('resources.zip', 'r') as x:
             x.extractall()
 
