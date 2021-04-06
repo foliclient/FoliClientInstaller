@@ -7,8 +7,6 @@ import sys
 import os
 from os import path
 import shutil
-import wget
-from zipfile import ZipFile
 
 # ASCII Title
 print('\n\'||\'\'\'\'|        \'||`      .|\'\'\'\', \'||`                        ||    \n ||  .           ||   \'\'  ||       ||   \'\'                    ||    \n ||\'\'|   .|\'\'|,  ||   ||  ||       ||   ||  .|\'\'|, `||\'\'|,  \'\'||\'\'  \n ||      ||  ||  ||   ||  ||       ||   ||  ||..||  ||  ||    ||    \n.||.     `|..|\' .||. .||. `|....\' .||. .||. `|...  .||  ||.   `|..\' \n')
@@ -29,8 +27,7 @@ else:
 # Validates that the installation path is valid
 isdir = os.path.isdir(destpath)
 if not isdir:
-    print(
-        f'[ERROR]\tUh oh, \"{destpath}\" is not a folder on your computer! Please check for any typos!')
+    print(f'[ERROR]\tUh oh, \"{destpath}\" is not a folder on your computer! Please check for any typos!')
     print('\n[INPUT]\tPress any key to exit...')
     input()
     sys.exit()
@@ -40,8 +37,7 @@ else:
     # Prompts user to confirm install directory
     confirmedDir = False
     while confirmedDir == False:
-        print(
-            f'\n[INPUT]\tAre you sure you want to install to \"{destpath}\"? (Y\\N)')
+        print(f'\n[INPUT]\tAre you sure you want to install to \"{destpath}\"? (Y\\N)')
         choice = input().lower()
         if choice == 'y':
             confirmedDir = True
@@ -55,26 +51,10 @@ else:
 # Makes sure the resources folder exists
 sourcepath = path.abspath(path.join(path.dirname(__file__), 'resources'))
 if not os.path.isdir(sourcepath):
-    try:
-        # get resources.zip
-        a = wget.download(
-            "https://github.com/yaxley-peaks/foliclient-resources/raw/main/resources.zip")
-        with ZipFile('resources.zip', 'r') as x:
-            x.extractall()
-
-        # get ffmpeg
-        x = wget.download(
-            "https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2021-04-06-12-36/ffmpeg-N-101865-g3e16d1c8a6-win64-gpl-shared.zip")
-        with ZipFile('ffmpeg-N-101865-g3e16d1c8a6-win64-gpl-shared.zip', 'r') as y:
-            y.extractall()
-
-        os.rename('ffmpeg-N-101865-g3e16d1c8a6-win64-gpl-shared', 'ffmpeg')
-        shutil.move('./ffmpeg', './resources')
-    except:
-        print('[ERROR]\tCan\'t find the resources folder. Please re-download the package or make sure the resources folder is in the same folder as this program')
-        print('\n[INPUT]\tPress any key to exit...')
-        input()
-        sys.exit()
+    print('[ERROR]\tCan\'t find the resources folder. Please re-download the package or make sure the resources folder is in the same folder as this program')
+    print('\n[INPUT]\tPress any key to exit...')
+    input()
+    sys.exit()
 else:
     print('[LOG]\tValidated resource directory')
 
