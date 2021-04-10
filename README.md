@@ -33,6 +33,7 @@ Foli Client is a customized, preconfigured modpack intended to provide a player 
 ## Notes
 
 - \*The Python script is written for Python 3.9, and *should* work on any OS, though it has only been tested on Windows and MacOS.
+- \*If clicking the script brings up an error, try running it by opening a termnal in the folder and running `python3 FoliClientInstaller.py`
 - If you don't want to run the installer, you can also just manually copy all of the folders in the `resources` folder in the zip to your Minecraft install directory
 - \*\*ReplayMod is included, but autorecording is disabled by default. If you're using it on TG, remember not to abuse it to see where you shouldn't, or gain any unfair advantage.
 - \*\*ReplayMod depends on FFmpeg to function correctly. The FFmpeg executable has been included, meaning Windows users don't need to do anything, however, if you're on a Mac or Linux machine you will need to install FFmpeg manually. For more info go to [Replaymod's website](https://www.replaymod.com/).
