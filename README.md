@@ -15,7 +15,7 @@ Foli Client is a customized, preconfigured modpack intended to provide a player 
 | MiniHUD                               | Displays FPS, Ping, Memory Usage, and more in a highly configurable HUD |
 | Also MiniHUD                  | Displays the full contents of a shulker box when you hold `shift` and hover over it in your inventory |
 | Also MiniHUD                         | Shows the light level of the blocks around you. Toggled using `f7`. |
-| Litematica                            | Allows you to make schematics of builds, and display them as an overlay in game to help recreate a build. |
+| Litematica                            | Allows you to make schematics of builds, and display them as an overlay in game to help recreate a build. Note that the execution hotkey is set to `f6`|
 | ReplayMod                             | Allows you to record gameplay, and view it as if in spectator mode later.*** |
 | DynamicFPS, Sodium, Lithium, Phosphor | Increase Minecraft performance significantly                 |
 | Ok Zoomer | Allows you to zoom, activated by holding `C` |
