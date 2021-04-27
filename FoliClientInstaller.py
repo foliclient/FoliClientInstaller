@@ -20,7 +20,7 @@ print('While unlikely, this program has the chance of screwing up your system if
 
 # Sets or asks for what path to install to
 destPath = ''
-if len(sys.argv) == 2:
+if len(sys.argv) >= 2:
     destpath = sys.argv[1]
 else:
     print('[INPUT]\tPlease type in the full filepath of your .minecraft folder:')
@@ -52,6 +52,9 @@ else:
 
 # Makes sure the resources folder exists
 sourcepath = path.abspath(path.join(path.dirname(__file__), 'resources'))
+
+
+
 if not os.path.isdir(sourcepath):
     print('[ERROR]\tCan\'t find the resources folder. Please re-download the package or make sure the resources folder is in the same folder as this program')
     print('\n[INPUT]\tPress any key to exit...')
@@ -70,6 +73,12 @@ for subdir, dirs, files in os.walk(sourcepath):
         fulldestpath = destpath + destination + os.sep + filename
         shutil.copyfile(filepath, fulldestpath)
         print(f'[LOG]\tCopied {destination} to {fulldestpath}')
+
+if len(sys.argv) > 2:
+    if sys.argv[2].lower() == 'astral':
+        print('\n[LOG]\tWAKE THE FUCK UP ASTRAL WE\'RE GOING TO THE FUCKING STARS WOOOOOOOOOOOOOOOO')
+        os.rename(destpath + os.sep + 'config' + os.sep + 'bg.jpg', destpath + os.sep + 'config' + os.sep + 'bgoriginal.jpg')
+        os.rename(destpath + os.sep + 'config' + os.sep + 'astral.jpg', destpath + os.sep + 'config' + os.sep + 'bg.jpg')
 
 # Success Message
 print('\n[LOG]\tAll files have been copied over, and Foli Client should now be installed. Remember to turn on the resourcepack!')
