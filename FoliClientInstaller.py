@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Foli Client Installer v1.0.3 for Minecraft 1.16.5
+# Foli Client Installer v1.1.1 for Minecraft 1.16.5
 # Script by ablazingeboy#7375
 # Other credits in README.md
 
@@ -9,6 +9,8 @@ import sys
 import os
 import shutil
 import argparse
+import urllib.request
+import zipfile
 
 # Argparse magic
 parser = argparse.ArgumentParser()
@@ -17,11 +19,15 @@ parser.add_argument("-v", "--verbose", action="store_true", default=False, help=
 graphicsmods = parser.add_mutually_exclusive_group()
 graphicsmods.add_argument("--optifine", action="store_true", default=False, help="Adds Optifine in place of Sodium, and removes conflicting/redundant mods. Optifine tends to have better framerates on some older/low-end hardware, and has shader support if you want to use those.")
 graphicsmods.add_argument("--sodium", action="store_true", default=False, help="Bypasses the prompt asking whether to use Optifine or Sodium, and adds Sodium.")
+extrasargs = parser.add_mutually_exclusive_group()
+extrasargs.add_argument("--extras", action="store_true", default=False, help="Downloads and installs the foli-extras package. Requires an internet connection.")
+extrasargs.add_argument("--noextras", action="store_true", default=False, help="Bypasses the prompt asking whether to install foli-extras, and does not install foli-extras.")
 parser.add_argument("--astral", help=argparse.SUPPRESS, action="store_true", default=False)
 args = parser.parse_args()
 
 # Set variables based on args
 use_optifine = args.optifine
+install_extras = args.extras
 
 # Helper Methods
 def get_full_path(relpath):
@@ -54,10 +60,23 @@ def copydir(sourcedir, destdir):
             if(args.verbose):
                 print(f'[LOG]\tCopied {destination + os.sep + filename} to {fulldestpath}')
 
+def pull_zip(label, url, destdir):
+    if args.verbose:
+        print(f'\n[LOG]\tDownloading {label} from {url}...')
+    else:
+        print(f'\n[LOG]\tDownloading {label}...')
+    zip_path, _ = urllib.request.urlretrieve(url)
+    if args.verbose:
+        print(f'[LOG]\tExtracting {label} to {destdir}...')
+    else:
+        print(f'[LOG]\tExtracting {label}...')
+    with zipfile.ZipFile(zip_path, "r") as f:
+        f.extractall(destdir)
+
 # ASCII Title
 print('\n\'||\'\'\'\'|        \'||`      .|\'\'\'\', \'||`                        ||    \n ||  .           ||   \'\'  ||       ||   \'\'                    ||    \n ||\'\'|   .|\'\'|,  ||   ||  ||       ||   ||  .|\'\'|, `||\'\'|,  \'\'||\'\'  \n ||      ||  ||  ||   ||  ||       ||   ||  ||..||  ||  ||    ||    \n.||.     `|..|\' .||. .||. `|....\' .||. .||. `|...  .||  ||.   `|..\' \n')
 # Remember to change version flag and mc version when updating!
-print('Installing Foli Client v1.1.0 for Minecraft 1.16.5')
+print('Installing Foli Client v1.1.1 for Minecraft 1.16.5')
 print('Installer made with <3 by ablazingeboy#7375')
 print('Learn more or submit any issues at https://github.com/ablazingeboy/FoliClientInstaller\n')
 print('While unlikely, this program has the chance of screwing up your system if used incorrectly.\nI AM NOT RESPONSIBLE FOR ANY DATA LOSS INCURRED BY USING THIS SCRIPT.\nFor best results, use this on a fresh minecraft profile, and Fabric MUST be installed.\n')
@@ -109,6 +128,20 @@ if (not args.optifine and not args.sodium):
         else:
             print(f'\n[ERROR]\t{choice} is not a valid selection.')
 
+# Asks the user if they want to download foli-extras
+if(not args.extras and not args.noextras):
+    loop_prompt=True
+    while(loop_prompt):
+        print(f'\n[INPUT]\tWould you like to download foli-extras? foli-extras is a collection of extra resourcepacks and other assets. For a full list of what is included, refer to the README. Downloading foli-extras requires an internet connection.\nDo you want to download foli-extras? (Y/N)')
+        choice = input().lower()
+        if choice == 'y':
+            install_extras = True
+            loop_prompt = False
+        elif choice == 'n':
+            install_extras = False
+            loop_prompt = False
+        else:
+            print(f'\n[ERROR]\t{choice} is not a valid selection.')
 
 # Validates and copies files
 commonpath = get_full_path(os.path.join('resources', 'common'))
@@ -119,6 +152,13 @@ if(use_optifine):
 else:
     sodiumpath = get_full_path(os.path.join('resources', 'sodium'))
     copydir(sodiumpath, destpath)
+
+if(install_extras):
+    pull_zip('foli-extras', "https://github.com/ablazingeboy/foli-extras/archive/refs/heads/main.zip", destpath)
+    extraspath = os.path.join(destpath, 'foli-extras-main')
+    copydir(extraspath, destpath)
+    print(f'\n[LOG]\tDeleting temp download folder')
+    shutil.rmtree(extraspath)
 
 if args.astral:
     print('\n[MESSAGE]\tWAKE THE FUCK UP ASTRAL WE\'RE GOING TO THE FUCKING STARS WOOOOOOOOOOOOOOOO')

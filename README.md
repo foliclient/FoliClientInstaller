@@ -46,6 +46,13 @@ Terrible video tutorial: https://youtu.be/bCiTwZmqE7A
 - The installer has CLI arguments if you want to use those rather than manually entering values during the install process. To see the available arguments, run `FoliClientInstaller.exe -h` or `FoliClientInstaller.py -h`.
 - If you have any issues with the installer, submit a GitHub issue or message me on Discord at ablazingeboy#7375
 
+## foli-extras
+
+foli-extras is an optional download, that you can choose during the install process. It includes resourcepacks and other assets, and will be continually added to. These are the packs currently included:
+
+- Winterstars' Pack
+- 
+
 ## Credits
 
 Thanks to AydenSWG for making custom textures for the included resource pack.
