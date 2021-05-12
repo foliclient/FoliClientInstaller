@@ -24,10 +24,11 @@ Foli Client is a customized, preconfigured modpack intended to provide a player 
 ## Installation Instructions
 
 Terrible video tutorial: https://youtu.be/bCiTwZmqE7A
+(Note that the tutorial shows downloading the 'source code' folder, but as of Foli Client Installer 1.1.0, the exe is released as a standalone file on the Releases page)
 
 1. Create a **fresh** profile/instance of Minecraft. If using the default launcher, it is recommended to create a different installation directory for the profile you will be using for Foli Client. **I strongly suggest using MultiMC**, as it makes it easy to manage multiple Minecraft profiles, and allows you to install Fabric with one click.
 2. Install [Fabric](https://fabricmc.net/). **Do not install Fabric API**, as the appropriate version is included in the modpack.
-3. Download the latest release from the [Releases](https://github.com/ablazingeboy/FoliClientInstaller/releases) page, and unzip it. **Do not move any of the files from the folder where they were unzipped.**
+3. Download the latest release from the [Releases](https://github.com/ablazingeboy/FoliClientInstaller/releases) page. If on Windows, download the .exe file. If on MacOS or Linux, download the 'source code' zip and unzip it. Do not move any of the files from the folder where they were unzipped.
 4. Run the installer for your OS (`FoliClientInstaller.exe` for Windows, and `FoliClientInstaller.py`\* for other platforms). When prompted, paste in the **full filepath** of your Minecraft install directory (e.g. `C:\Users\ABlazingEBoy\Documents\MinecraftDirectory` on Windows or  `/Users/ABlazingEBoy/Documents/MinecraftDirectory` on Mac)
 5. After you start up Foli Client, **make sure to apply the two included resource packs. Foli Client Specific Textures should always be on top of your resourcepack list for the client to look correct**
 6. Enjoy Foli Client! 
