@@ -1,4 +1,4 @@
-![](https://raw.githubusercontent.com/ablazingeboy/FoliClientInstaller/main/resources/config/foliclientlogobg.png?token=AS4NPFVUY4OGEDUZH4RM273ANR72C)
+![](https://github.com/ablazingeboy/FoliClientInstaller/raw/main/resources/common/config/foliclientlogobg.png)
 
 ![](https://img.shields.io/github/downloads/ablazingeboy/FoliClientInstaller/total?style=for-the-badge)
 
