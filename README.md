@@ -16,9 +16,9 @@ Foli Client is a customized, preconfigured modpack intended to provide a player 
 | Also MiniHUD                  | Displays the full contents of a shulker box when you hold `shift` and hover over it in your inventory |
 | Also MiniHUD                         | Shows the light level of the blocks around you. Toggled using `f7`. |
 | Litematica                            | Allows you to make schematics of builds, and display them as an overlay in game to help recreate a build. Note that the execution hotkey is set to `f6`|
-| ReplayMod                             | Allows you to record gameplay, and view it as if in spectator mode later.*** |
-| DynamicFPS, Sodium, Lithium, Phosphor | Increase Minecraft performance significantly                 |
-| Ok Zoomer | Allows you to zoom, activated by holding `C` |
+| ReplayMod                             | Allows you to record gameplay, and view it as if in spectator mode later.\*\* |
+| DynamicFPS, Sodium/Optifine\*\*\*\*, Lithium\*\*\*\*, Phosphor | Increase Minecraft performance significantly                 |
+| Ok Zoomer/Optifine\*\*\*\* | Allows you to zoom, activated by holding `C` |
 | MyBrightness | FullBright, turn it on using `5` on the numpad (You can remap this in the ingame hotkey settings) |
 
 ## Installation Instructions
@@ -40,7 +40,9 @@ Terrible video tutorial: https://youtu.be/bCiTwZmqE7A
 - \*\*ReplayMod is included, but autorecording is disabled by default. If you're using it on TG, remember not to abuse it to see where you shouldn't, or gain any unfair advantage.
 - \*\*ReplayMod depends on FFmpeg to function correctly. The FFmpeg executable has been included, meaning Windows users don't need to do anything, however, if you're on a Mac or Linux machine you will need to install FFmpeg manually. For more info go to [Replaymod's website](https://www.replaymod.com/).
 - \*\*\*Voxelmap's Menu key has been remapped from `m` to `` ` `` (the one above `Tab` on English keyboards), and Cave Mode and Radar have been disabled.
+- \*\*\*\*If the installer is run with the `--optifine` argument, or you choose it during the install process, Sodium, Lithium, and Ok Zoomer will be replaced with Optifine and Optifabric.
 - To activate the Light Overlay, press `f7`
+- The installer has CLI arguments if you want to use those rather than manually entering values during the install process. To see the available arguments, run `FoliClientInstaller.exe -h` or `FoliClientInstaller.py -h`.
 - If you have any issues with the installer, submit a GitHub issue or message me on Discord at ablazingeboy#7375
 
 ## Credits
@@ -67,6 +69,8 @@ Thanks to WinterStars, exgodstatus, and TheDoctor7562 for giving me insight on t
 - [FFmpeg](https://ffmpeg.org/)
 - [MyBrightness](https://www.curseforge.com/minecraft/mc-mods/mybrightness)
 - [Ok Zoomer](https://www.curseforge.com/minecraft/mc-mods/ok-zoomer)
+- [Optifine](https://www.optifine.net/home)
+- [Optifabric](https://www.curseforge.com/minecraft/mc-mods/optifabric)
 
 ## Resource Packs Used
 
