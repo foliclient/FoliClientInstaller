@@ -78,3 +78,7 @@ Thanks to WinterStars, exgodstatus, and TheDoctor7562 for giving me insight on t
 - Most tweaks from [VanillaTweaks for 1.16](https://vanillatweaks.net/)
 - Wither and Wither Skeleton texture from [TG Resource Pack](https://drive.google.com/file/d/17eHH_U8ujffCjJJlVBGVNYmlaor1u1dz/view?usp=sharing)
 - Custom textures by AydenSWG
+
+## Build
+
+If for some ungodly reason you want to build the exe from source, install PyInstaller from pip, navigate to the cloned repo, then run `pyinstaller --onefile --icon=Icon32.ico --distpath=. --add-data "resources;resources" FoliClientInstaller.py`.
