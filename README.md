@@ -16,18 +16,19 @@ Foli Client is a customized, preconfigured modpack intended to provide a player 
 | Also MiniHUD                  | Displays the full contents of a shulker box when you hold `shift` and hover over it in your inventory |
 | Also MiniHUD                         | Shows the light level of the blocks around you. Toggled using `f7`. |
 | Litematica                            | Allows you to make schematics of builds, and display them as an overlay in game to help recreate a build. Note that the execution hotkey is set to `f6`|
-| ReplayMod                             | Allows you to record gameplay, and view it as if in spectator mode later.*** |
-| DynamicFPS, Sodium, Lithium, Phosphor | Increase Minecraft performance significantly                 |
-| Ok Zoomer | Allows you to zoom, activated by holding `C` |
+| ReplayMod                             | Allows you to record gameplay, and view it as if in spectator mode later.\*\* |
+| DynamicFPS, Sodium/Optifine\*\*\*\*, Lithium\*\*\*\*, Phosphor | Increase Minecraft performance significantly                 |
+| Ok Zoomer/Optifine\*\*\*\* | Allows you to zoom, activated by holding `C` |
 | MyBrightness | FullBright, turn it on using `5` on the numpad (You can remap this in the ingame hotkey settings) |
 
 ## Installation Instructions
 
 Terrible video tutorial: https://youtu.be/bCiTwZmqE7A
+(Note that the tutorial shows downloading the 'source code' folder, but as of Foli Client Installer 1.1.0, the exe is released as a standalone file on the Releases page)
 
 1. Create a **fresh** profile/instance of Minecraft. If using the default launcher, it is recommended to create a different installation directory for the profile you will be using for Foli Client. **I strongly suggest using MultiMC**, as it makes it easy to manage multiple Minecraft profiles, and allows you to install Fabric with one click.
 2. Install [Fabric](https://fabricmc.net/). **Do not install Fabric API**, as the appropriate version is included in the modpack.
-3. Download the latest release from the [Releases](https://github.com/ablazingeboy/FoliClientInstaller/releases) page, and unzip it. **Do not move any of the files from the folder where they were unzipped.**
+3. Download the latest release from the [Releases](https://github.com/ablazingeboy/FoliClientInstaller/releases) page. If on Windows, download the .exe file. If on MacOS or Linux, download the 'source code' zip and unzip it. Do not move any of the files from the folder where they were unzipped.
 4. Run the installer for your OS (`FoliClientInstaller.exe` for Windows, and `FoliClientInstaller.py`\* for other platforms). When prompted, paste in the **full filepath** of your Minecraft install directory (e.g. `C:\Users\ABlazingEBoy\Documents\MinecraftDirectory` on Windows or  `/Users/ABlazingEBoy/Documents/MinecraftDirectory` on Mac)
 5. After you start up Foli Client, **make sure to apply the two included resource packs. Foli Client Specific Textures should always be on top of your resourcepack list for the client to look correct**
 6. Enjoy Foli Client! 
@@ -40,7 +41,9 @@ Terrible video tutorial: https://youtu.be/bCiTwZmqE7A
 - \*\*ReplayMod is included, but autorecording is disabled by default. If you're using it on TG, remember not to abuse it to see where you shouldn't, or gain any unfair advantage.
 - \*\*ReplayMod depends on FFmpeg to function correctly. The FFmpeg executable has been included, meaning Windows users don't need to do anything, however, if you're on a Mac or Linux machine you will need to install FFmpeg manually. For more info go to [Replaymod's website](https://www.replaymod.com/).
 - \*\*\*Voxelmap's Menu key has been remapped from `m` to `` ` `` (the one above `Tab` on English keyboards), and Cave Mode and Radar have been disabled.
+- \*\*\*\*If the installer is run with the `--optifine` argument, or you choose it during the install process, Sodium, Lithium, and Ok Zoomer will be replaced with Optifine and Optifabric.
 - To activate the Light Overlay, press `f7`
+- The installer has CLI arguments if you want to use those rather than manually entering values during the install process. To see the available arguments, run `FoliClientInstaller.exe -h` or `FoliClientInstaller.py -h`.
 - If you have any issues with the installer, submit a GitHub issue or message me on Discord at ablazingeboy#7375
 
 ## Credits
@@ -67,6 +70,8 @@ Thanks to WinterStars, exgodstatus, and TheDoctor7562 for giving me insight on t
 - [FFmpeg](https://ffmpeg.org/)
 - [MyBrightness](https://www.curseforge.com/minecraft/mc-mods/mybrightness)
 - [Ok Zoomer](https://www.curseforge.com/minecraft/mc-mods/ok-zoomer)
+- [Optifine](https://www.optifine.net/home)
+- [Optifabric](https://www.curseforge.com/minecraft/mc-mods/optifabric)
 
 ## Resource Packs Used
 

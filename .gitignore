@@ -140,3 +140,4 @@ cython_debug/
 .vscode/
 *.code-workspace
 .DS_Store
+*.exe
