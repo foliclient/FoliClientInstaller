@@ -51,7 +51,7 @@ Terrible video tutorial: https://youtu.be/bCiTwZmqE7A
 foli-extras is an optional download, that you can choose during the install process. It includes resourcepacks and other assets, and will be continually added to. These are the packs currently included:
 
 - Winterstars' Pack
-- 
+- TG Texture Pack
 
 ## Credits
 
