@@ -1,6 +1,6 @@
-![](https://github.com/foliclient/FoliClientInstaller/raw/main/resources/common/config/foliclientlogobg.png)
+![](https://github.com/foliclient/FoliClientInstaller/raw/1.16.x/resources/common/config/foliclientlogobg.png)
 
-![](https://img.shields.io/github/downloads/ablazingeboy/FoliClientInstaller/total?style=for-the-badge)
+![](https://img.shields.io/github/downloads/foliclient/FoliClientInstaller/total?style=for-the-badge)
 
 This is the installer for the Foli Client modpack.
 
