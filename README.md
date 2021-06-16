@@ -2,7 +2,7 @@
 
 ![](https://img.shields.io/github/downloads/foliclient/FoliClientInstaller/total?style=for-the-badge)
 
-For more information about Foli Client, please visit the [website](foliclient.astral.vip).
+For more information about Foli Client, please visit the [website](https://foliclient.astral.vip).
 
 ## What is Foli Client?
 
