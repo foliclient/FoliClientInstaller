@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Foli Client Installer v1.1.1 for Minecraft 1.16.5
+# Foli Client Installer v1.2.0 for Minecraft 1.16.5
 # Script by ablazingeboy#7375
 # Other credits in README.md
 
@@ -117,7 +117,7 @@ else:
 if (not args.optifine and not args.sodium):
     loop_prompt=True
     while(loop_prompt):
-        print(f'\n[INPUT]\tYou can choose to use Optifine in place of Sodium on Foli Client. Sodium is generally recommended for most users, but Optifine has better frame-rates in certain cases (typically older hardware). Optifine also has shader support, so if you want to use those, choose Optifine.\nDo you want to use Optifine? (Y/N)')
+        print(f'\n[INPUT]\tYou can choose to use Optifine in place of Sodium on Foli Client. Sodium is generally recommended for most users, as the performance even on old hardware far outclasses Optifine, thanks to mods included in Foli Client. However, Optifine has shader support, so if you want to use those, choose Optifine.\nDo you want to use Optifine? (Y/N)')
         choice = input().lower()
         if choice == 'y':
             use_optifine = True
@@ -154,7 +154,7 @@ else:
     copydir(sodiumpath, destpath)
 
 if(install_extras):
-    pull_zip('foli-extras', "https://github.com/ablazingeboy/foli-extras/archive/refs/heads/main.zip", destpath)
+    pull_zip('foli-extras', "https://github.com/foliclient/foli-extras/archive/refs/heads/main.zip", destpath)
     extraspath = os.path.join(destpath, 'foli-extras-main')
     copydir(extraspath, destpath)
     print(f'\n[LOG]\tDeleting temp download folder')
