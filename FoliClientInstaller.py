@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Foli Client Installer v1.2.0 for Minecraft 1.16.5
+# Foli Client Installer v1.2.1 for Minecraft 1.16.5
 # Script by ablazingeboy#7375
 # Other credits in README.md
 
@@ -76,7 +76,7 @@ def pull_zip(label, url, destdir):
 # ASCII Title
 print('\n\'||\'\'\'\'|        \'||`      .|\'\'\'\', \'||`                        ||    \n ||  .           ||   \'\'  ||       ||   \'\'                    ||    \n ||\'\'|   .|\'\'|,  ||   ||  ||       ||   ||  .|\'\'|, `||\'\'|,  \'\'||\'\'  \n ||      ||  ||  ||   ||  ||       ||   ||  ||..||  ||  ||    ||    \n.||.     `|..|\' .||. .||. `|....\' .||. .||. `|...  .||  ||.   `|..\' \n')
 # Remember to change version flag and mc version when updating!
-print('Installing Foli Client v1.2.0 for Minecraft 1.16.5')
+print('Installing Foli Client v1.2.1 for Minecraft 1.16.5')
 print('Installer made with <3 by ablazingeboy#7375')
 print('Learn more or submit any issues at https://github.com/ablazingeboy/FoliClientInstaller\n')
 print('While unlikely, this program has the chance of screwing up your system if used incorrectly.\nI AM NOT RESPONSIBLE FOR ANY DATA LOSS INCURRED BY USING THIS SCRIPT.\nFor best results, use this on a fresh minecraft profile, and Fabric MUST be installed.\n')

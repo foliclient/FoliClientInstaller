@@ -36,7 +36,6 @@ Thanks to WinterStars, exgodstatus, and TheDoctor7562 for giving me insight on t
 - [Optifabric](https://www.curseforge.com/minecraft/mc-mods/optifabric)
 - [Hydrogen](https://github.com/CaffeineMC/hydrogen-fabric)
 - [Sodium Extra](https://www.curseforge.com/minecraft/mc-mods/sodium-extra)
-- [EntityCulling](https://www.curseforge.com/minecraft/mc-mods/entityculling)
 - [FastChest](https://www.curseforge.com/minecraft/mc-mods/fastchest)
 - [FerriteCore](https://www.curseforge.com/minecraft/mc-mods/ferritecore-fabric)
 - [Smooth Boot](https://www.curseforge.com/minecraft/mc-mods/smooth-boot)
