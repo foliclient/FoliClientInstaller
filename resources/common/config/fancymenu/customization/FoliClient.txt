@@ -2,7 +2,10 @@ type = menu
 
 customization-meta {
   identifier = net.minecraft.class_442
+  randomgroup = 1
   renderorder = foreground
+  randommode = false
+  randomonlyfirsttime = false
 }
 
 customization {
@@ -19,6 +22,15 @@ customization {
 }
 
 customization {
+  identifier = %id=604394%
+  seconds = 2.0
+  onlyfirsttime = false
+  fadein = true
+  fadeinspeed = 0.5
+  action = hidebuttonfor
+}
+
+customization {
   identifier = %id=376394%
   orientation = bottom-left
   x = 20
@@ -27,28 +39,45 @@ customization {
 }
 
 customization {
+  identifier = %id=376394%
+  seconds = 2.0
+  onlyfirsttime = false
+  fadein = true
+  fadeinspeed = 0.5
+  action = hidebuttonfor
+}
+
+customization {
   orientation = bottom-left
+  delayappearanceseconds = 2.0
   buttonaction = openlink
+  label = GitHub
+  fadein = true
+  fadeinspeed = 0.5
   x = 0
   width = 40
-  actionid = 7e33e9cc-077a-4ec1-bdcc-f03dd962c4621623950460633
+  actionid = d87785c8-a700-45a1-91e1-ca98e914af051626807109279
   action = addbutton
   y = -40
-  label = GitHub
+  delayappearance = true
   value = https://github.com/ablazingeboy/FoliClientInstaller
+  delayappearanceeverytime = true
   height = 20
 }
 
 customization {
   orientation = top-left
   shadow = true
+  delayappearanceseconds = 1.0
   x = 3
   actionid = edc21523-1dc4-483f-a567-36a1a1f248271617580582077
   action = addtext
   y = 3
   scale = 1.0
+  delayappearance = true
   alignment = left
   value = Foli Client on Minecraft %mcversion%
+  delayappearanceeverytime = false
 }
 
 customization {
@@ -61,5 +90,59 @@ customization {
   scale = 1.0
   alignment = left
   value = Made with <3 by ablazingeboy#7375
+}
+
+customization {
+  identifier = %id=400310%
+  seconds = 0.1
+  onlyfirsttime = true
+  fadein = true
+  fadeinspeed = 0.5
+  action = hidebuttonfor
+}
+
+customization {
+  identifier = %id=400358%
+  seconds = 0.1
+  onlyfirsttime = true
+  fadein = true
+  fadeinspeed = 0.5
+  action = hidebuttonfor
+}
+
+customization {
+  identifier = %id=400286%
+  seconds = 0.1
+  onlyfirsttime = true
+  fadein = true
+  fadeinspeed = 0.5
+  action = hidebuttonfor
+}
+
+customization {
+  identifier = %id=400334%
+  seconds = 0.1
+  onlyfirsttime = true
+  fadein = true
+  fadeinspeed = 0.5
+  action = hidebuttonfor
+}
+
+customization {
+  identifier = %id=400394%
+  seconds = 0.1
+  onlyfirsttime = true
+  fadein = true
+  fadeinspeed = 0.5
+  action = hidebuttonfor
+}
+
+customization {
+  identifier = %id=502394%
+  seconds = 0.1
+  onlyfirsttime = true
+  fadein = true
+  fadeinspeed = 0.5
+  action = hidebuttonfor
 }
 

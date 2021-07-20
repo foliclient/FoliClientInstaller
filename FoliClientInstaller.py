@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Foli Client Installer v1.2.1 for Minecraft 1.16.5
+# Foli Client Installer v2.0.0 for Minecraft 1.17.1
 # Script by ablazingeboy#7375
 # Other credits in README.md
 
@@ -17,17 +17,20 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-d", "--directory", help="Specify a specific directory to install to. If this argument isn't used, the installer will prompt you for the destination directory.")
 parser.add_argument("-v", "--verbose", action="store_true", default=False, help="Adds extra logs")
 graphicsmods = parser.add_mutually_exclusive_group()
-graphicsmods.add_argument("--optifine", action="store_true", default=False, help="Adds Optifine in place of Sodium, and removes conflicting/redundant mods. Optifine is not recommended, as due to modifications in this pack Sodium performs significantly faster, however it does have shader support.")
-graphicsmods.add_argument("--sodium", action="store_true", default=False, help="Bypasses the prompt asking whether to use Optifine or Sodium, and adds Sodium.")
-extrasargs = parser.add_mutually_exclusive_group()
-extrasargs.add_argument("--extras", action="store_true", default=False, help="Downloads and installs the foli-extras package. Requires an internet connection.")
-extrasargs.add_argument("--noextras", action="store_true", default=False, help="Bypasses the prompt asking whether to install foli-extras, and does not install foli-extras.")
+graphicsmods.add_argument("--optifine", action="store_true", default=False, help="Bypasses the prompt asking which graphics mod to use, and adds OptiFine. (Not recommended for most users)")
+graphicsmods.add_argument("--sodium", action="store_true", default=False, help="Bypasses the prompt asking which graphics mod to use, and adds Sodium with Sodium Extra. (Recommended for most users)")
+graphicsmods.add_argument("--iris", action="store_true", default=False, help="Bypasses the prompt asking which graphics mod to use, and adds Sodium with Iris. (Recommended for users who want shaders)")
+
+# extrasargs = parser.add_mutually_exclusive_group()
+# extrasargs.add_argument("--extras", action="store_true", default=False, help="Downloads and installs the foli-extras package. Requires an internet connection.")
+# extrasargs.add_argument("--noextras", action="store_true", default=False, help="Bypasses the prompt asking whether to install foli-extras, and does not install foli-extras.")
 parser.add_argument("--astral", help=argparse.SUPPRESS, action="store_true", default=False)
 args = parser.parse_args()
 
 # Set variables based on args
 use_optifine = args.optifine
-install_extras = args.extras
+use_iris = args.iris
+# install_extras = args.extras
 
 # Helper Methods
 def get_full_path(relpath):
@@ -76,7 +79,7 @@ def pull_zip(label, url, destdir):
 # ASCII Title
 print('\n\'||\'\'\'\'|        \'||`      .|\'\'\'\', \'||`                        ||    \n ||  .           ||   \'\'  ||       ||   \'\'                    ||    \n ||\'\'|   .|\'\'|,  ||   ||  ||       ||   ||  .|\'\'|, `||\'\'|,  \'\'||\'\'  \n ||      ||  ||  ||   ||  ||       ||   ||  ||..||  ||  ||    ||    \n.||.     `|..|\' .||. .||. `|....\' .||. .||. `|...  .||  ||.   `|..\' \n')
 # Remember to change version flag and mc version when updating!
-print('Installing Foli Client v1.2.1 for Minecraft 1.16.5')
+print('Welcome to Foli Client Installer v2.0.0 for Minecraft 1.17.1')
 print('Installer made with <3 by ablazingeboy#7375')
 print('Learn more or submit any issues at https://github.com/ablazingeboy/FoliClientInstaller\n')
 print('While unlikely, this program has the chance of screwing up your system if used incorrectly.\nI AM NOT RESPONSIBLE FOR ANY DATA LOSS INCURRED BY USING THIS SCRIPT.\nFor best results, use this on a fresh minecraft profile, and Fabric MUST be installed.\n')
@@ -114,34 +117,40 @@ else:
             print('[ERROR]\tNot a valid choice, please try again!')
 
 # Asks the user if they want to use Optifine
-if (not args.optifine and not args.sodium):
+if (not args.optifine and not args.sodium and not args.iris):
     loop_prompt=True
     while(loop_prompt):
-        print(f'\n[INPUT]\tYou can choose to use Optifine in place of Sodium on Foli Client. Sodium is generally recommended for most users, as the performance even on old hardware far outclasses Optifine, thanks to mods included in Foli Client. However, Optifine has shader support, so if you want to use those, choose Optifine.\nDo you want to use Optifine? (Y/N)')
+        print(f'\n[INPUT]\tYou have three options for graphics mods on Foli Client:\n\tSodium w/ Sodium Extra\tRecommended for most users\n\tSodium w/ Iris\t\tRecommended for users who want shaders, but is still experimental\n\tOptifine\t\tNot recommended for most users\n\nPlease select a choice: (sodium/iris/optifine) ')
         choice = input().lower()
-        if choice == 'y':
+        if choice == 'optifine' or choice == 'o':
             use_optifine = True
+            use_iris = False
             loop_prompt = False
-        elif choice == 'n':
+        elif choice == 'iris' or choice == 'i':
             use_optifine = False
+            use_iris = True
+            loop_prompt = False
+        elif choice == 'sodium' or choice == 's':
+            use_optifine = False
+            use_iris = False
             loop_prompt = False
         else:
             print(f'\n[ERROR]\t{choice} is not a valid selection.')
 
 # Asks the user if they want to download foli-extras
-if(not args.extras and not args.noextras):
-    loop_prompt=True
-    while(loop_prompt):
-        print(f'\n[INPUT]\tWould you like to download foli-extras? foli-extras is a collection of extra resourcepacks and other assets. For a full list of what is included, refer to the README. Downloading foli-extras requires an internet connection.\nDo you want to download foli-extras? (Y/N)')
-        choice = input().lower()
-        if choice == 'y':
-            install_extras = True
-            loop_prompt = False
-        elif choice == 'n':
-            install_extras = False
-            loop_prompt = False
-        else:
-            print(f'\n[ERROR]\t{choice} is not a valid selection.')
+#if(not args.extras and not args.noextras):
+#    loop_prompt=True
+#    while(loop_prompt):
+#        print(f'\n[INPUT]\tWould you like to download foli-extras? foli-extras is a collection of extra resourcepacks and other assets. For a full list of what is included, refer to the README. Downloading foli-extras requires an internet connection.\nDo you want to download foli-extras? (Y/N)')
+#        choice = input().lower()
+#        if choice == 'y':
+#            install_extras = True
+#            loop_prompt = False
+#        elif choice == 'n':
+#            install_extras = False
+#            loop_prompt = False
+#        else:
+#            print(f'\n[ERROR]\t{choice} is not a valid selection.')
 
 # Validates and copies files
 commonpath = get_full_path(os.path.join('resources', 'common'))
@@ -149,16 +158,19 @@ copydir(commonpath, destpath)
 if(use_optifine):
     optifinepath = get_full_path(os.path.join('resources', 'optifine'))
     copydir(optifinepath, destpath)
+elif(use_iris):
+    irispath = get_full_path(os.path.join('resources', 'iris'))
+    copydir(irispath, destpath)
 else:
     sodiumpath = get_full_path(os.path.join('resources', 'sodium'))
     copydir(sodiumpath, destpath)
 
-if(install_extras):
-    pull_zip('foli-extras', "https://github.com/foliclient/foli-extras/archive/refs/heads/main.zip", destpath)
-    extraspath = os.path.join(destpath, 'foli-extras-main')
-    copydir(extraspath, destpath)
-    print(f'\n[LOG]\tDeleting temp download folder')
-    shutil.rmtree(extraspath)
+#if(install_extras):
+#    pull_zip('foli-extras', "https://github.com/foliclient/foli-extras/archive/refs/heads/main.zip", destpath)
+#    extraspath = os.path.join(destpath, 'foli-extras-main')
+#    copydir(extraspath, destpath)
+#    print(f'\n[LOG]\tDeleting temp download folder')
+#    shutil.rmtree(extraspath)
 
 if args.astral:
     print('\n[MESSAGE]\tWAKE THE FUCK UP ASTRAL WE\'RE GOING TO THE FUCKING STARS WOOOOOOOOOOOOOOOO')

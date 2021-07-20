@@ -1,6 +1,6 @@
 {
-	"pack": {
-		"pack_format": 6,
-		"description": [{"text":"FoliTweaks","color":"gold"},{"text":"\nApply this!","color":"yellow"}]
-	}
+    "pack": {
+        "pack_format": 7,
+        "description": "§6FoliTweaks\n§eA collection of useful textures!"
+    }
 }
