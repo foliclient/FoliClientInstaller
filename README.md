@@ -28,22 +28,20 @@ Thanks to WinterStars, exgodstatus, and TheDoctor7562 for giving me insight on t
 - [MiniHUD](https://www.curseforge.com/minecraft/mc-mods/minihud)
 - [Litematica](https://www.curseforge.com/minecraft/mc-mods/litematica)
 - [CraftPresence](https://www.curseforge.com/minecraft/mc-mods/craftpresence)
-- [ReplayMod](https://www.replaymod.com/)
 - [FFmpeg](https://ffmpeg.org/)
-- [MyBrightness](https://www.curseforge.com/minecraft/mc-mods/mybrightness)
 - [Ok Zoomer](https://www.curseforge.com/minecraft/mc-mods/ok-zoomer)
 - [Optifine](https://www.optifine.net/home)
 - [Optifabric](https://www.curseforge.com/minecraft/mc-mods/optifabric)
-- [Hydrogen](https://github.com/CaffeineMC/hydrogen-fabric)
 - [Sodium Extra](https://www.curseforge.com/minecraft/mc-mods/sodium-extra)
 - [FastChest](https://www.curseforge.com/minecraft/mc-mods/fastchest)
 - [FerriteCore](https://www.curseforge.com/minecraft/mc-mods/ferritecore-fabric)
 - [Smooth Boot](https://www.curseforge.com/minecraft/mc-mods/smooth-boot)
+- [Iris](https://irisshaders.net/)
+- [Boosted Brightness](https://www.curseforge.com/minecraft/mc-mods/boosted-brightness)
 
 ## Resource Packs Used
 
 - Most tweaks from [VanillaTweaks for 1.16](https://vanillatweaks.net/)
-- Wither and Wither Skeleton texture from [TG Resource Pack](https://drive.google.com/file/d/17eHH_U8ujffCjJJlVBGVNYmlaor1u1dz/view?usp=sharing)
 - Custom textures by AydenSWG
 
 ## Build
