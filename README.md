@@ -44,6 +44,18 @@ Thanks to WinterStars, exgodstatus, and TheDoctor7562 for giving me insight on t
 - Most tweaks from [VanillaTweaks for 1.16](https://vanillatweaks.net/)
 - Custom textures by AydenSWG
 
-## Build
+## Build From Source
 
-If for some ungodly reason you want to build the exe from source, install PyInstaller from pip, navigate to the cloned repo, then run `pyinstaller --onefile --icon=Icon32.ico --distpath=. --add-data "resources;resources" FoliClientInstaller.py` (Windows) or `pyinstaller --onefile --icon=Icon32.ico --distpath=. --add-data "resources:resources" FoliClientInstaller.py` (MacOS/Linux).
+If you don't want to trust an executable from a rando on the internet, and would rather build it yourself from source, install PyInstaller from pip, navigate to the cloned repo, then run `pyinstaller --onefile --icon=Icon32.ico --distpath=. --add-data "resources;resources" FoliClientInstaller.py` (Windows) or `pyinstaller --onefile --icon=Icon32.ico --distpath=. --add-data "resources:resources" FoliClientInstaller.py` (MacOS/Linux). These are the same commands used to generate the latest binaries I distribute.
+
+## Support me?
+
+If (unlike me), you aren't a semi-broke student, maybe toss me a little crypto so I can achieve my lifelong dream of owning a maid outfit?
+| Coin     | Address                                      |
+| -------- | -------------------------------------------- |
+| Bitcoin  | `bc1qzx0h2wsx3c84fslspr8cmrl7vf7t2t29ydhafk` |
+| Ethereum | `0x68a762D06E004416B22cb5210960d5f3B3f6940d` |
+
+---
+
+© ABlazingEBoy 2021 | An Astral Project
