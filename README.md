@@ -1,6 +1,8 @@
 ![](https://github.com/foliclient/FoliClientInstaller/raw/1.16.x/resources/common/config/foliclientlogobg.png)
 
-![](https://img.shields.io/github/downloads/foliclient/FoliClientInstaller/total?style=for-the-badge) ![](https://img.shields.io/badge/Powered%20By-Enough%20Caffeine%20To%20Kill%20A%20Horse-yellow?style=for-the-badge) [![](https://img.shields.io/badge/Sponsored%20By-Astral-blueviolet?style=for-the-badge)](https://astral.vip)
+![](https://img.shields.io/github/downloads/foliclient/FoliClientInstaller/total?style=for-the-badge) 
+[![](https://img.shields.io/badge/Sponsored%20By-Astral-blueviolet?style=for-the-badge)](https://astral.vip)
+![](https://img.shields.io/badge/Powered%20By-Enough%20Caffeine%20To%20Kill%20A%20Horse-yellow?style=for-the-badge) 
 
 For more information about Foli Client, please visit the [website](https://foliclient.astral.vip).
 
