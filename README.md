@@ -48,7 +48,7 @@ Thanks to WinterStars, exgodstatus, and TheDoctor7562 for giving me insight on t
 
 ## Build From Source
 
-If you don't want to trust an executable from a rando on the internet, and would rather build it yourself from source, install PyInstaller from pip, navigate to the cloned repo, then run `pyinstaller --onefile --icon=Icon32.ico --distpath=. --add-data "resources;resources" FoliClientInstaller.py` (Windows) or `pyinstaller --onefile --icon=Icon32.ico --distpath=. --add-data "resources:resources" FoliClientInstaller.py` (MacOS/Linux). These are the same commands used to generate the latest binaries I distribute.
+If you don't want to trust an executable from a rando on the internet, and would rather build it yourself from source, install PyInstaller from pip, navigate to the cloned repo, then run `pyinstaller --onefile --noconsole --icon=Icon32.ico --add-data "resources;resources" FoliClientInstaller.py` (Windows) or `pyinstaller --onefile --noconsole --icon=Icon32.ico --add-data "resources:resources" FoliClientInstaller.py` (MacOS/Linux). These are the same commands used to generate the latest binaries I distribute.
 
 ## Support me?
 
