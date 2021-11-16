@@ -1,21 +1,20 @@
 #!/usr/bin/env python3
 
-# Foli Client Installer v2.0.1 for Minecraft 1.17.1
-# Script by ablazingeboy#7375
-# Other credits in README.md
-
 # Imports
 import sys
 import os
 import shutil
 import argparse
-import urllib.request
-import zipfile
+import PySimpleGUI as sg
+
+# Variables
+version = '2.1.0'
+mcversion = '1.17.1'
+sg.theme('DarkBrown1')
 
 # Argparse magic
 parser = argparse.ArgumentParser()
 parser.add_argument("-d", "--directory", help="Specify a specific directory to install to. If this argument isn't used, the installer will prompt you for the destination directory.")
-parser.add_argument("-v", "--verbose", action="store_true", default=False, help="Adds extra logs")
 graphicsmods = parser.add_mutually_exclusive_group()
 graphicsmods.add_argument("--optifine", action="store_true", default=False, help="Bypasses the prompt asking which graphics mod to use, and adds OptiFine. (Not recommended for most users)")
 graphicsmods.add_argument("--sodium", action="store_true", default=False, help="Bypasses the prompt asking which graphics mod to use, and adds Sodium with Sodium Extra. (Recommended for most users)")
@@ -30,7 +29,6 @@ args = parser.parse_args()
 # Set variables based on args
 use_optifine = args.optifine
 use_iris = args.iris
-# install_extras = args.extras
 
 # Helper Methods
 def get_full_path(relpath):
@@ -43,12 +41,9 @@ def get_full_path(relpath):
         fullpath = os.path.abspath(os.path.join(os.path.dirname(__file__), relpath))
 
     if not os.path.isdir(fullpath):
-        print(f'[ERROR]\t{fullpath} is missing. Please re-download the package or make sure the resources folder is in the same folder as this program and has not been altered.')
-        print('\n[INPUT]\tPress any key to exit...')
-        input()
-        sys.exit()
+        error_popup(f'{fullpath} is missing. Please re-download the package or make sure the resources folder is in the same folder as this program and has not been altered.')
     else:
-        print(f'[LOG]\tValidated {relpath}')
+        message_log(f'Validated {relpath}')
         return fullpath
 
 def copydir(sourcedir, destdir):
@@ -60,97 +55,97 @@ def copydir(sourcedir, destdir):
             os.makedirs(destdir + destination, exist_ok=True)
             fulldestpath = destpath + destination + os.sep + filename
             shutil.copyfile(filepath, fulldestpath)
-            if(args.verbose):
-                print(f'[LOG]\tCopied {destination + os.sep + filename} to {fulldestpath}')
+            file_log(f'Copied {destination + os.sep + filename} to {fulldestpath}')
 
-def pull_zip(label, url, destdir):
-    if args.verbose:
-        print(f'\n[LOG]\tDownloading {label} from {url}...')
-    else:
-        print(f'\n[LOG]\tDownloading {label}...')
-    zip_path, _ = urllib.request.urlretrieve(url)
-    if args.verbose:
-        print(f'[LOG]\tExtracting {label} to {destdir}...')
-    else:
-        print(f'[LOG]\tExtracting {label}...')
-    with zipfile.ZipFile(zip_path, "r") as f:
-        f.extractall(destdir)
+def error_popup(error):
+    error_log(error)
+    sg.Window('Error!', [[sg.T(error)], [sg.Exit()]], disable_close=True).read(close=True)
+    sys.exit()
 
-# ASCII Title
-print('\n\'||\'\'\'\'|        \'||`      .|\'\'\'\', \'||`                        ||    \n ||  .           ||   \'\'  ||       ||   \'\'                    ||    \n ||\'\'|   .|\'\'|,  ||   ||  ||       ||   ||  .|\'\'|, `||\'\'|,  \'\'||\'\'  \n ||      ||  ||  ||   ||  ||       ||   ||  ||..||  ||  ||    ||    \n.||.     `|..|\' .||. .||. `|....\' .||. .||. `|...  .||  ||.   `|..\' \n')
-# Remember to change version flag and mc version when updating!
-print('Welcome to Foli Client Installer v2.0.1 for Minecraft 1.17.1')
-print('Installer made with <3 by ablazingeboy#7375')
-print('Learn more or submit any issues at https://github.com/ablazingeboy/FoliClientInstaller\n')
-print('While unlikely, this program has the chance of screwing up your system if used incorrectly.\nI AM NOT RESPONSIBLE FOR ANY DATA LOSS INCURRED BY USING THIS SCRIPT.\nFor best results, use this on a fresh minecraft profile, and Fabric MUST be installed.\n')
+def exit_popup():
+    sg.Window('Installer Exited', [[sg.T('The installer has been exited and no changes have been made.')], [sg.Exit()]], disable_close=True).read(close=True)
+    sys.exit()
+
+def message_log(message):
+    print(f'[LOG]\t{message}')
+
+def error_log(error):
+    print(f'[ERROR]\t{error}')
+
+def file_log(text):
+    print(f'[FILE_WRITE]\t{text}')
+
+def custom_log(type, message):
+    print(f'[{type}]\t{message}')
 
 # Sets or asks for what path to install to
-destPath = ''
 if args.directory:
     destpath = args.directory
 else:
-    print('[INPUT]\tPlease type in the full filepath of your .minecraft folder:')
-    destpath = input()
+    event, values = sg.Window(f'Foli Client Installer v{version}', [[sg.T(f'Welcome to the Foli Client Installer for Minecraft {mcversion}!\nPlease read the instructions on the website before installing!')],
+                                                                    [sg.T('While unlikely, this program has the chance of screwing up your system if used incorrectly.\nI AM NOT RESPONSIBLE FOR ANY DATA LOSS INCURRED BY USING THIS SCRIPT.\nFor best results, use this on a fresh minecraft profile, and Fabric MUST be installed.')],
+                                                                    [sg.T('Installer made with <3 by ablazingeboy#7375\nWebsite: https://foliclient.astral.vip\nGithub: https://github.com/foliclient/FoliClientInstaller')],
+                                                                    [sg.Frame('Install Directory', layout=[[sg.InputText(key='inputpath', expand_x=True), sg.FolderBrowse(key='browsepath')]], tooltip='The directory where Foli Client should be installed', expand_x=True)],
+                                                                    [sg.B('Continue'), sg.B('Exit')]]).read(close=True)
+    if event == sg.WIN_CLOSED or event == 'Exit':
+        sys.exit(0)
+    elif event == 'Continue':
+        if values['inputpath']:
+            destpath = values['inputpath']
+        else:
+            destpath = values['browsepath']
+        message_log('Recieved \"{destpath}\" from window.')
 
 # Validates that the installation path is valid
 isdir = os.path.isdir(destpath)
 if not isdir:
-    print(f'[ERROR]\tUh oh, \"{destpath}\" is not a folder on your computer! Please check for any typos!')
-    print('\n[INPUT]\tPress any key to exit...')
-    input()
-    sys.exit()
+    error_popup(f'Uh oh, \"{destpath}\" is not a folder on your computer! Please check for any typos!')
 else:
-    print('[LOG]\t' + destpath + ' is a valid directory')
+    message_log(f'\"{destpath}\" is a valid directory')
 
     # Prompts user to confirm install directory
-    confirmedDir = False
-    while confirmedDir == False:
-        print(f'\n[INPUT]\tAre you sure you want to install to \"{destpath}\"? (Y\\N)')
-        choice = input().lower()
-        if choice == 'y':
-            confirmedDir = True
-        elif choice == 'n':
-            print('\n[INPUT]\tPress any key to exit...')
-            input()
-            sys.exit()
-        else:
-            print('[ERROR]\tNot a valid choice, please try again!')
+    event, values = sg.Window('Confirm Install Directory', [[sg.T(f'Are you sure you want to install Foli Client to \"{destpath}\"?')], [sg.B('Yes'), sg.B('No')]], disable_close=True).read(close=True)
+    if event == sg.WIN_CLOSED or event == 'No':
+        exit_popup()
+    else:
+        message_log('Directory confirmed by user')
 
 # Asks the user if they want to use Optifine
 if (not args.optifine and not args.sodium and not args.iris):
-    loop_prompt=True
-    while(loop_prompt):
-        print(f'\n[INPUT]\tYou have three options for graphics mods on Foli Client:\n\tSodium w/ Sodium Extra\tRecommended for most users\n\tSodium w/ Iris\t\tRecommended for users who want shaders, but is still experimental\n\tOptifine\t\tNot recommended for most users\n\nPlease select a choice: (sodium/iris/optifine) ')
-        choice = input().lower()
-        if choice == 'optifine' or choice == 'o':
-            use_optifine = True
-            use_iris = False
-            loop_prompt = False
-        elif choice == 'iris' or choice == 'i':
-            use_optifine = False
-            use_iris = True
-            loop_prompt = False
-        elif choice == 'sodium' or choice == 's':
-            use_optifine = False
-            use_iris = False
-            loop_prompt = False
-        else:
-            print(f'\n[ERROR]\t{choice} is not a valid selection.')
+        event, values = sg.Window('Select a Graphics Mod', [[sg.T(f'Please select which graphics mod to install:')], 
+                                                            [sg.Radio('Sodium w/ Extras (Recommended)', "GMODS", default=True, key='use_sodium')],
+                                                            [sg.Radio('Sodium w/ Iris (Recommended for shader users)', "GMODS", key='use_iris')],
+                                                            [sg.Radio('Optifine (Not Recommended)', "GMODS", key='use_optifine')],
+                                                            [sg.B('Continue'), sg.B('Exit')]], disable_close=True).read(close=True)
+        if event == sg.WIN_CLOSED or event == 'Exit':
+            exit_popup()
+        elif event == 'Continue':
+            if values['use_optifine']:
+                message_log('Optifine Selected')
+                use_optifine = True
+                use_iris = False
+            elif values['use_iris']:
+                message_log('Iris Selected')
+                use_optifine = False
+                use_iris = True
+            else:
+                message_log('Sodium Selected')
+                use_optifine = False
+                use_iris = False
+if use_optifine:
+    graphics_selection_string = 'Optifine'
+elif use_iris:
+    graphics_selection_string = 'Sodium w/ Iris'
+else:
+    graphics_selection_string = 'Sodium w/ Extras'
 
-# Asks the user if they want to download foli-extras
-#if(not args.extras and not args.noextras):
-#    loop_prompt=True
-#    while(loop_prompt):
-#        print(f'\n[INPUT]\tWould you like to download foli-extras? foli-extras is a collection of extra resourcepacks and other assets. For a full list of what is included, refer to the README. Downloading foli-extras requires an internet connection.\nDo you want to download foli-extras? (Y/N)')
-#        choice = input().lower()
-#        if choice == 'y':
-#            install_extras = True
-#            loop_prompt = False
-#        elif choice == 'n':
-#            install_extras = False
-#            loop_prompt = False
-#        else:
-#            print(f'\n[ERROR]\t{choice} is not a valid selection.')
+# Confirm install details and warn about file write
+# Prompts user to confirm install directory
+event, values = sg.Window('Confirm Install Details', [[sg.T(f'Your Selections:\nDestination Folder: \"{destpath}\"\nGraphics Mod: \"{graphics_selection_string}\"')], [sg.Text('Would you like to proceed with the install? This will write files to the selected folder.')], [sg.B('Yes'), sg.B('No')]], disable_close=True).read(close=True)
+if event == sg.WIN_CLOSED or event == 'No':
+    exit_popup()
+else:
+    message_log('Install confirmed by user')
 
 # Validates and copies files
 commonpath = get_full_path(os.path.join('resources', 'common'))
@@ -164,21 +159,14 @@ elif(use_iris):
 else:
     sodiumpath = get_full_path(os.path.join('resources', 'sodium'))
     copydir(sodiumpath, destpath)
+        
 
-#if(install_extras):
-#    pull_zip('foli-extras', "https://github.com/foliclient/foli-extras/archive/refs/heads/main.zip", destpath)
-#    extraspath = os.path.join(destpath, 'foli-extras-main')
-#    copydir(extraspath, destpath)
-#    print(f'\n[LOG]\tDeleting temp download folder')
-#    shutil.rmtree(extraspath)
-
+# Astral wooooooo
 if args.astral:
-    print('\n[MESSAGE]\tWAKE THE FUCK UP ASTRAL WE\'RE GOING TO THE FUCKING STARS WOOOOOOOOOOOOOOOO')
+    custom_log('MESSAGE', 'WAKE THE FUCK UP ASTRAL WE\'RE GOING TO THE FUCKING STARS WOOOOOOOOOOOOOOOO')
     os.rename(destpath + os.sep + 'config' + os.sep + 'bg.jpg', destpath + os.sep + 'config' + os.sep + 'bgoriginal.jpg')
     os.rename(destpath + os.sep + 'config' + os.sep + 'astral.jpg', destpath + os.sep + 'config' + os.sep + 'bg.jpg')
 
 # Success Message
-print('\n[LOG]\tAll files have been copied over, and Foli Client should now be installed. Remember to turn on the resourcepack!')
-print('\n[INPUT]\tPress any key to exit...')
-input()
-sys.exit()
+message_log('Install Completed')
+sg.Window('Installation Completed', [[sg.T('Thank you for installing Foli Client! Please make sure to enable the texturepacks once installed')], [sg.Exit()]], disable_close=True).read(close=True)
