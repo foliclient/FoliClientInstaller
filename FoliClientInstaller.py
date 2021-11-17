@@ -19,10 +19,6 @@ graphicsmods = parser.add_mutually_exclusive_group()
 graphicsmods.add_argument("--optifine", action="store_true", default=False, help="Bypasses the prompt asking which graphics mod to use, and adds OptiFine. (Not recommended for most users)")
 graphicsmods.add_argument("--sodium", action="store_true", default=False, help="Bypasses the prompt asking which graphics mod to use, and adds Sodium with Sodium Extra. (Recommended for most users)")
 graphicsmods.add_argument("--iris", action="store_true", default=False, help="Bypasses the prompt asking which graphics mod to use, and adds Sodium with Iris. (Recommended for users who want shaders)")
-
-# extrasargs = parser.add_mutually_exclusive_group()
-# extrasargs.add_argument("--extras", action="store_true", default=False, help="Downloads and installs the foli-extras package. Requires an internet connection.")
-# extrasargs.add_argument("--noextras", action="store_true", default=False, help="Bypasses the prompt asking whether to install foli-extras, and does not install foli-extras.")
 parser.add_argument("--astral", help=argparse.SUPPRESS, action="store_true", default=False)
 args = parser.parse_args()
 
