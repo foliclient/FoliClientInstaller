@@ -6,6 +6,8 @@
 
 For more information about Foli Client, please visit the [website](https://foliclient.astral.vip).
 
+**Note: This project is no longer under development. It's been a great run, and Foli Client has become so much more than I possibly dreamed of. That being said, with the shutdown of TG, now feels like a good time to retire this project. Thank you to everyone who used and contributed to Foli Client throughout the past 8 months.**
+
 ## What is Foli Client?
 
 Foli Client is a customized, preconfigured modpack intended to provide players with useful tools for technical Minecraft. In addition, mods are configured by default to be legal on the TeenagersGaming Minecraft Server. Here is an explanation of some of the various mods included:
